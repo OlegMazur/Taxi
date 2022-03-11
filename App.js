@@ -5,19 +5,24 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import HomeScreen from './screens/HomeScreen';
+import MapScreen from './screens/MapScreen';
 import { store } from './store';
 
 export default function App() {
-  const Stack=createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();
   return (
     <Provider store={store}>
       <NavigationContainer>
-          <SafeAreaProvider>
-
-               <HomeScreen />
-          </SafeAreaProvider>
+        <SafeAreaProvider>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" 
+            component={HomeScreen} 
+            options={{headerShown:false}}/>
+            <Stack.Screen name="Map" component={MapScreen} />
+          </Stack.Navigator>
+        </SafeAreaProvider>
       </NavigationContainer>
-      
+
     </Provider>
   );
 }
