@@ -1,16 +1,24 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
+import HomeScreen from './screens/HomeScreen';
 import { store } from './store';
 
 export default function App() {
+  const Stack=createNativeStackNavigator();
   return (
-   <Provider store={store}>
-    <View style={styles.container}>
-      <Text>uber hhv gygyg</Text>
-      <StatusBar style="auto" />
-    </View>
-   </Provider>
+    <Provider store={store}>
+      <NavigationContainer>
+          <SafeAreaProvider>
+
+               <HomeScreen />
+          </SafeAreaProvider>
+      </NavigationContainer>
+      
+    </Provider>
   );
 }
 
