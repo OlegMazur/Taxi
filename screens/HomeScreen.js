@@ -7,11 +7,11 @@ import {GOOGLE_MAPS_APIKEY} from "@env";
 const HomeScreen = () => {
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
-      <View style={tw`p-5`}>
+      <View style={tw`p-5 pt-10`}>
         <Image
         style={{
-            width:100,
-            height:100,
+            width:80,
+            height:80,
             resizeMode:"contain"
         }}
            source={{
@@ -19,8 +19,21 @@ const HomeScreen = () => {
            }}
         />
         <GooglePlacesAutocomplete
-          placeholder='Where from'
-          nearbyPlacesAPI='GooglePlacasSearch'
+          placeholder="Where from"
+          styles={{
+            container:{
+              flex:0,
+              
+            },
+            textInput:{
+              fontSize: 18,
+            }
+          }}
+          query={{
+            key: GOOGLE_MAPS_APIKEY,
+            language: "en"
+          }}
+          nearbyPlacesAPI="GooglePlacesSearch"
           debounce={400} 
         
         />
