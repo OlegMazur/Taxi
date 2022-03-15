@@ -14,11 +14,11 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <SafeAreaProvider>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator >
             <Stack.Screen name="Home" 
             component={HomeScreen} 
             options={{headerShown:false}}/>
-            <Stack.Screen name="Map" component={MapScreen} />
+            <Stack.Screen name="Map" component={MapScreen}  options={{headerShown:false}}/>
           </Stack.Navigator>
         </SafeAreaProvider>
       </NavigationContainer>
