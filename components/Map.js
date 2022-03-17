@@ -26,7 +26,7 @@ const Map = () => {
       ${destination.description}&key=${GOOGLE_MAPS_APIKEY}`)
       .then((res)=>res.json())
       .then((data)=>{
-        console.log(data)
+       
          dispatch(setTravelTimeInformation(data.rows[0].elements[0]));
       });
     };
